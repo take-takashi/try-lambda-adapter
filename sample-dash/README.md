@@ -17,4 +17,9 @@ Spawning shell within /workspaces/try-lambda-adapter/sample-dash/.venv
 (sample-dash-py3.11) @take-takashi ➜ /workspaces/try-lambda-adapter/sample-dash (main) $ poetry add dash pandas
 Using version ^2.15.0 for dash
 Using version ^2.2.1 for pandas
+
+# build
+(sample-dash-py3.11) @take-takashi ➜ .../try-lambda-adapter/sample-dash/src/sample_dash (main) $ docker build -f Dockerfile -t sample-dash .
+# debug
+(sample-dash-py3.11) @take-takashi ➜ .../try-lambda-adapter/sample-dash/src/sample_dash (main) $ docker run -p 8080:8080 sample-dash
 ```
