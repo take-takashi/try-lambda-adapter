@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "root"
+        },
+        {
+            "path": "sample-dash"
+        }
+    ],
+    "settings": {}
+}
