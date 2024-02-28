@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sample-dash"
+version = "0.1.0"
+description = ""
+authors = ["TAKE Takashi <705098+take-takashi@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "sample_dash", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
