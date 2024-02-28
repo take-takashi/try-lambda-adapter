@@ -8,6 +8,8 @@ packages = [{include = "sample_dash", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+dash = "^2.15.0"
+pandas = "^2.2.1"
 
 
 [build-system]
