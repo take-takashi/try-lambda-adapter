@@ -6,6 +6,9 @@
         },
         {
             "path": "sample-dash"
+        },
+        {
+            "path": "sam-app"
         }
     ],
     "settings": {}
