@@ -12,6 +12,9 @@
         },
         {
             "path": "sample-sam"
+        },
+        {
+            "path": "sample-flask"
         }
     ],
     "settings": {}
