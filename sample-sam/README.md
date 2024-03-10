@@ -210,3 +210,11 @@ Commands you can use next
 [*] Validate SAM template: cd sample-sam && sam validate
 [*] Test Function in the Cloud: cd sample-sam && sam sync --stack-name {stack-name} --watch
 ```
+
+# 動かし方（ローカル実行）
+```sh
+@take-takashi ➜ /workspaces/try-lambda-adapter/sample-sam (main) $ sam build
+# sam local start-apiコマンドは「sam build」した後に実行する
+@take-takashi ➜ /workspaces/try-lambda-adapter/sample-sam (main) $ sam local start-api
+# ブラウザで「http://127.0.0.1:3000/hello」にアクセスする
+```
