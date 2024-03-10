@@ -1,33 +1,38 @@
-import json
+from dash import Dash, html, dcc, callback, Output, Input
+import dash
+import plotly.express as px
+import pandas as pd
 
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv')
 
-def lambda_handler(event, context):
-    """Sample pure Lambda function
+app = Dash(__name__, use_pages=True)
+server = app.server
 
-    Parameters
-    ----------
-    event: dict, required
-        API Gateway Lambda Proxy Input Format
+app.layout = html.Div([
+    html.H1('Multi-page app with Dash Pages'),
+    html.Div([
+        html.Div(
+            dcc.Link(f"{page['name']} - {page['path']}", href=page["relative_path"])
+        ) for page in dash.page_registry.values()
+    ]),
+    dash.page_container
+])
 
-        Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
+"""
+app.layout = html.Div([
+    html.H1(children='Title of Dash App', style={'textAlign':'center'}),
+    dcc.Dropdown(df.country.unique(), 'Canada', id='dropdown-selection'),
+    dcc.Graph(id='graph-content')
+])
 
-    context: object, required
-        Lambda Context runtime methods and attributes
+@callback(
+    Output('graph-content', 'figure'),
+    Input('dropdown-selection', 'value')
+)
+def update_graph(value):
+    dff = df[df.country==value]
+    return px.line(dff, x='year', y='pop')
+"""
 
-        Context doc: https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html
-
-    Returns
-    ------
-    API Gateway Lambda Proxy Output Format: dict
-
-        Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
-    """
-
-    return {
-        "statusCode": 200,
-        "body": json.dumps(
-            {
-                "message": "hello world",
-            }
-        ),
-    }
+if __name__ == '__main__':
+    app.run(debug=True)

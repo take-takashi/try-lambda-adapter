@@ -225,3 +225,81 @@ Commands you can use next
 [*] Validate SAM template: cd sam-app && sam validate
 [*] Test Function in the Cloud: cd sam-app && sam sync --stack-name {stack-name} --watch
 ```
+
+# Setup 2（Dockerfileとpythonのバージョン違うが・・・エラーが出るので一旦）
+```sh
+@take-takashi ➜ /workspaces/try-lambda-adapter/sam-app (main) $ poetry init --python ^3.11
+
+This command will guide you through creating your pyproject.toml config.
+
+Package name [sam-app]:  
+Version [0.1.0]:  
+Description []:  
+Author [TAKE Takashi <705098+take-takashi@users.noreply.github.com>, n to skip]:  
+License []:  
+
+Would you like to define your main dependencies interactively? (yes/no) [yes] no
+Would you like to define your development dependencies interactively? (yes/no) [yes] no
+Generated file
+
+[tool.poetry]
+name = "sam-app"
+version = "0.1.0"
+description = ""
+authors = ["TAKE Takashi <705098+take-takashi@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+Do you confirm generation? (yes/no) [yes] 
+@take-takashi ➜ /workspaces/try-lambda-adapter/sam-app (main) $ poetry add dash pandas -G hello_world
+Creating virtualenv sam-app in /workspaces/try-lambda-adapter/sam-app/.venv
+Using version ^2.16.0 for dash
+Using version ^2.2.1 for pandas
+
+Updating dependencies
+Resolving dependencies... (3.3s)
+
+Package operations: 30 installs, 1 update, 0 removals
+
+  - Installing markupsafe (2.1.5)
+  - Installing blinker (1.7.0)
+  - Installing certifi (2024.2.2)
+  - Installing charset-normalizer (3.3.2)
+  - Installing click (8.1.7)
+  - Installing idna (3.6)
+  - Installing itsdangerous (2.1.2)
+  - Installing jinja2 (3.1.3)
+  - Installing packaging (23.2)
+  - Installing six (1.16.0)
+  - Installing tenacity (8.2.3)
+  - Installing urllib3 (2.2.1)
+  - Installing werkzeug (3.0.1)
+  - Installing zipp (3.17.0)
+  - Installing dash-core-components (2.0.0)
+  - Installing dash-html-components (2.0.0)
+  - Installing dash-table (5.0.0)
+  - Installing flask (3.0.2)
+  - Installing importlib-metadata (7.0.1)
+  - Installing nest-asyncio (1.6.0)
+  - Installing numpy (1.26.4)
+  - Installing plotly (5.19.0)
+  - Installing python-dateutil (2.9.0.post0)
+  - Installing pytz (2024.1)
+  - Installing requests (2.31.0)
+  - Installing retrying (1.3.4)
+  - Updating setuptools (69.1.0 -> 69.1.1)
+  - Installing typing-extensions (4.10.0)
+  - Installing tzdata (2024.1)
+  - Installing dash (2.16.0)
+  - Installing pandas (2.2.1)
+
+Writing lock file
+```
